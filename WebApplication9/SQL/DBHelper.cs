@@ -5,15 +5,16 @@ namespace WebApplication9.SQL
 {
     public class DBHelper
     {
-        private string connectionString;
+        private readonly SqlConnection connection;
         public DBHelper()
         {
-            connectionString = "Server=localhost;Database=Employee;Trusted_Connection=True;";
+            var connectionString = "Server=localhost;Database=Employee;Trusted_Connection=True;";
+            connection = new SqlConnection(connectionString);
         }
 
         public IEnumerable<Employee> GetEmployeeList()
         {
-            SqlConnection connection = new SqlConnection(connectionString);
+            
             var command = new SqlCommand("GetAllEmployees", connection);
             command.CommandType = System.Data.CommandType.StoredProcedure;
             connection.Open();
