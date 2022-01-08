@@ -25,6 +25,7 @@ namespace WebApplication9.Controllers
         public IActionResult Create(Employee employee)
         {
             repository.Create(employee);
+            return View();
         }
 
         public IActionResult Privacy()

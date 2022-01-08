@@ -1,4 +1,5 @@
 ﻿using WebApplication9.Models;
+using WebApplication9.SQL;
 
 namespace WebApplication9.Repository
 {
@@ -18,13 +19,8 @@ namespace WebApplication9.Repository
         public IEnumerable<Employee> GetAll()
         {
             //SQL 
-            var employees = new List<Employee>()
-           {
-               new Employee{FirstName="Chandra", Age=40, LastName="Dha",Phone="989898989"},
-                new Employee{FirstName="Ravi", Age=30, LastName="TT",Phone="900000000000"},
-                 new Employee{FirstName="Sathya", Age=25, LastName="Ravi",Phone="91111111111"}
-           };
-            return employees;
+            var dbHelper = new DBHelper();
+            return dbHelper.GetEmployeeList();
         }
 
         public Employee GetById(int id)
