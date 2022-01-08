@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<WebApplication9.Models.Employee>;
+
+<div class="text-center">
+    <h1 class="display-4">Employee Mgmt</h1>
+   
+</div>
+<table>
+    <thead>
+        <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Age</td>
+        <td>Mobile</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var employee in Model) //foreach (var emplouyee in employees)
+        {
+        <tr>
+            <td>@employee.FirstName</td>
+            <td>@employee.LastName</td>
+            <td>@employee.Age</td>
+            <td>@employee.Phone</td>
+        </tr>
+        }
+    </tbody>
+</table>
